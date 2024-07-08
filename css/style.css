@@ -123,6 +123,25 @@ button:focus {
     outline: none;
 }
 
+.announcement-bar {
+    display: none;
+    background-color: #0F0869;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+/* Show announcement bar only on mobile devices */
+@media (max-width: 768px) {
+    .announcement-bar {
+        display: block;
+    }
+}
+@media (max-width: 768px) {
+    .aheader-container {
+        display: none;
+    }
+}
+
 li,
 ol {
     margin : 0px;
@@ -223,7 +242,6 @@ button {
     float: left;
     background-color: #fff;
     height: auto;
-    padding-top: 15px;
     padding-bottom: 5px;
 }
 
@@ -255,7 +273,15 @@ button {
     float: left;
     background-color: #fff;
     height: auto;
+    margin-left: 0; /* No margin on mobile */
 }
+
+@media (min-width: 768px) {
+    .banner_section {
+        margin-left: 200px; /* Add left margin for larger screens */
+    }
+}
+
 
 #carouselExampleIndicators a.carousel-control-prev {
     position: absolute;
@@ -410,65 +436,8 @@ button {
     color: #000000;
 }
 
-.about_section {
-    width: 100%;
-    float: left;
-    background-color: #0F0869;
-    margin-top: 70px;
-    max-height: 300px;
-}
-
-.about_taital {
-    width: 63%;
-    float: right;
-    margin-top: 80px;
-}
-.about_taital5 {
-    width: 63%;
-    float: left;
-    margin-top: 80px;
-}
-
-
-.about_text {
-    width: 100%;
-    float: left;
-    font-size: 40px;
-    color: #ffffff;
-    font-weight: bold;
-}
-
-.about_img {
-    width: 100%;
-    float: left;
-    max-height: 300px;
-    overflow: hidden;
-}
-.about_section2 {
-    width: 100%;
-    float: left;
-    background-color: #0F0869;
-    margin-top: 70px;
-}
-
-.about_taital2 {
-    width: 63%;
-    float: left; /* Changed from right to left */
-    margin-top: 80px;
-}
-
-.about_text2 {
-    width: 100%;
-    float: left;
-    font-size: 40px;
-    color: #ffffff;
-    font-weight: bold;
-}
-
-.about_img3 {
-    width: 100%;
-    float: right; /* Changed from left to right */
-}
+.about_section,
+.about_section2,
 .about_section3 {
     width: 100%;
     float: left;
@@ -476,26 +445,128 @@ button {
     margin-top: 70px;
 }
 
-.about_taital3 {
-    width: 63%;
-    position: center; /* Changed from right to left */
-    margin-top: 80px;
+.about_taital,
+.about_taital2,
+.about_taital3,
+.about_taital5 {
+    width: 100%; /* Adjust to 100% for mobile */
+    margin-top: 40px; /* Reduce margin-top for better spacing on mobile */
+    float: none; /* Reset float for better stacking on mobile */
+    text-align: center; /* Center align text on mobile */
+    padding: 0 15px; /* Add padding for better readability on mobile */
 }
 
+.about_text,
+.about_text2,
 .about_text3 {
     width: 100%;
-    text-align: center;
-    font-size: 40px;
+    font-size: 24px; /* Reduce font size for better readability on mobile */
     color: #ffffff;
     font-weight: bold;
 }
 
-.about_img2 {
-    width: 100%;
-    float: left;
-    max-height: 300px;
-    overflow: hidden;; /* Changed from left to right */
+.about_text2 {
+    margin-top: 20px; /* Reduce top margin for better spacing on mobile */
 }
+
+.about_text3 {
+    text-align: center;
+}
+
+.about_img,
+.about_img2,
+.about_img3 {
+    width: 100%;
+    max-height: 200px;
+    overflow: hidden; /* Reduce max-height for better fit on mobile */ /* Zorgt ervoor dat de afbeelding de container volledig vult zonder te vervormen */
+}
+
+@media (min-width: 768px) {
+    .about_taital,
+    .about_taital2,
+    .about_taital3,
+    .about_taital5 {
+        width: 63%;
+        margin-top: 80px; /* Restore original margin-top for larger screens */
+        float: none; /* Restore original float */
+        text-align: left; /* Align text to left on larger screens */
+    }
+
+    .about_taital2 {
+        float: left; /* Adjust float for larger screens */
+    }
+
+    .about_img,
+    .about_img2,
+    .about_img3 {
+        max-height: 500px; /* Restore original max-height for larger screens */
+    }
+
+    .about_img3 {
+        float: right; /* Adjust float for larger screens */
+    }
+
+    .about_taital3 {
+        text-align: center; /* Center text for larger screens */
+    }
+
+    .about_img2 {
+        float: left; /* Adjust float for larger screens */
+    }
+}
+.about_img6 {
+    width: 100%;
+    height: 300px; /* Zorgt ervoor dat de afbeeldingen een vaste hoogte hebben */
+    overflow: hidden; /* Verbergt delen van de afbeelding die buiten de container vallen */
+    position: relative; /* Maakt het mogelijk om de inhoud te verplaatsen */
+}
+
+.about_img6 img {
+    height: 100%;
+    object-fit: cover; /* Zorgt ervoor dat de afbeelding de container volledig vult zonder te vervormen */
+    object-position: center; /* Zorgt ervoor dat het midden van de afbeelding wordt getoond */
+}
+
+@media (min-width: 1024px) { /* Adjust the min-width value to match your desktop breakpoint */
+    .about_img6 img {
+        object-fit: contain; /* Zorgt ervoor dat de gehele afbeelding zichtbaar is binnen de container */
+        object-position: center; /* Zorgt ervoor dat het midden van de afbeelding wordt getoond */
+    }
+}
+@media (max-width: 768px) { /* Adjust the min-width value to match your desktop breakpoint */
+    .about_img6 img {
+        width: 100%; /* Zorgt ervoor dat de gehele afbeelding zichtbaar is binnen de container */
+        object-position: center; /* Zorgt ervoor dat het midden van de afbeelding wordt getoond */
+    }
+}
+
+
+@media (max-width: 768px) {
+    .about_img6 {
+        height: 300px; /* Pas de hoogte aan op mobiele apparaten */
+    }
+}
+@media (max-width: 768px) {
+    .col-md-3.padding_0 {
+        height: 400px !important;
+    }
+}
+
+.about_img5 img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover; /* Zorgt ervoor dat de afbeelding de container volledig vult zonder te vervormen */
+    object-position: center;
+    min-width: 350px; /* Zorgt ervoor dat het midden van de afbeelding wordt getoond */
+}
+.about_img5 {
+    width: 100%;
+    height: 450px; /* Zorgt ervoor dat de afbeeldingen een vaste hoogte hebben */
+    overflow: hidden; /* Verbergt delen van de afbeelding die buiten de container vallen */
+    position: relative; /* Maakt het mogelijk om de inhoud te verplaatsen */
+}
+
+
 
 .centered-gradient-text {
     text-align: center;
@@ -503,7 +574,7 @@ button {
     justify-content: center; /* Centreert de inhoud horizontaal */
     align-items: center; /* Centreert de inhoud verticaal */
     font-size: 20px; /* Pas de grootte van de tekst aan zoals nodig */
-    background: linear-gradient(to right,#000000, #ffffff);
+    background: linear-gradient(to right,#7f7e7e, #ffffff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -519,6 +590,14 @@ button {
     color: #ffffff;
     margin-left: 0px;
 }
+
+@media (min-width: 1024px) { /* Adjust the min-width value to match your desktop breakpoint */
+    .long_text {
+        width: 160%;
+        font: 16px;
+    }
+}
+
 
 .long_text1 {
     width: 100%;
@@ -631,7 +710,6 @@ button {
     font-size: 40px;
     color: #0b0e13;
     border-bottom: 1px solid #020727
-    text-align: center;
 }
 
 .seemore_bt a {
@@ -818,6 +896,24 @@ textarea#comment.massage-bt::placeholder {
     padding-bottom: 80px;
 }
 
+.addres_text {
+    text-align: center;
+    font-size: 24px; /* Increase text size */
+}
+
+.map_addres .map_text i {
+    font-size: 24px; /* Increase icon size */
+}
+
+.map_addres .map_text .map_icon a {
+    font-size: 18px; /* Increase text size */
+    display: block;
+    text-align: center;
+}
+
+.footer_line {
+    margin-bottom: 20px;
+}
 .input-group>.input-group-append>.btn,
 .input-group>.input-group-append>.input-group-text,
 .input-group>.input-group-prepend:first-child>.btn:not(:first-child),
@@ -827,7 +923,7 @@ textarea#comment.massage-bt::placeholder {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     background-color: #020727
-    color: #fff;
+    color: #fff;  
     border: 0px;
 }
 
@@ -852,51 +948,53 @@ textarea#comment.massage-bt::placeholder {
     color: #000000;
     padding-left: 175px;
 }
+@media (max-width: 767px) {
+    .center-text-mobile {
+       text-align: center;
+       margin-top: 30px;
+    }
+ }
 
 .addres_text {
-    width: 10%;
+    width: 30%;
     margin: 0 auto;
     text-align: center;
     font-size: 30px;
     color: #000000;
-    border-bottom: 1px solid #ffffff;
+    border-bottom: 1px solid #000000;
     padding-top: 25px;
 }
 
-.map_addres {
-    width: 100%;
-    float: left;
-    padding-top: 50px;
-    padding-bottom: 50px;
+.map_text {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Default margin */
+}
+.map_text2 {
+    display: flex;
+    flex-direction: column; /* Plaats de items in een kolom */
+    align-items: center; /* Centreer de items horizontaal */
 }
 
-.map_text {
-    width: 100%;
-    float: left;
-    font-size: 20px;
-    color: #000000;
-    display: flex;
+.map_text_large {
+    margin-left: 25%; /* Default margin for larger screens */
 }
+
 
 .map_icon {
-    padding-left: 10px;
-    padding-top: 10px;
+    margin-left: 10px;
 }
-
-.social_icon {
-    width: 15%;
-    margin: 0 auto;
-    text-align: center;
+.map_text i {
+    font-size: 24px; /* Grotere iconen */
+    margin-top: 5px; /* Verplaats de iconen iets naar beneden */
+    color: #000;
 }
-
-.social_icon ul {
-    margin: 0px;
-    padding: 0px
+.map_text a {
+    color: #000; /* Zwarte kleur voor de <a>-tags */
+    text-decoration: none; /* Optioneel: verwijder onderstreping */
 }
-
-.social_icon li {
-    float: left;
-    padding-left: 10px;
+.map_text a:hover {
+    text-decoration: underline; /* Optioneel: onderstreep bij hover */
 }
 
 .copyright_section {
@@ -926,73 +1024,178 @@ textarea#comment.massage-bt::placeholder {
     width: 100%;
     height: auto;
 }
-.logo_image {
-    width: 70%; /* Pas de waarde aan om de gewenste grootte te krijgen */
-    height: auto; /* Zorgt ervoor dat de verhouding behouden blijft */
-    z-index: 10; /* Pas de waarde aan afhankelijk van je behoefte */
-    position: relative; /* Voeg position toe om z-index te laten werken */
+.banner_section {
+    background-color: #ffffff; /* Example background color */
+    padding: 20px 0;
 }
 
-.image_pa {
-    width: 450px; /* Pas de breedte aan naar wens */
-    height: auto; /* Zorgt ervoor dat de verhouding behouden blijft */
-    z-index: 10; /* Pas de waarde aan afhankelijk van je behoefte */
-    position: relative; /* Voeg position toe om z-index te laten werken */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Maak de schaduw groter en donkerder */
-    border-radius: 15px; /* Maak de hoeken rond */
-    transition: transform 0.3s, box-shadow 0.3s; /* Voeg een overgangseffect toe voor hover */
-    margin-right: 15px; /* Voeg ruimte toe tussen de afbeelding en de tekst */
+.container-fluid {
+    max-width: 10200px;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 
-.image_pa:hover {
-    transform: scale(1.05); /* Vergroot de afbeelding lichtjes bij hover */
-    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.7); /* Versterk de schaduw bij hover */
+/* Als je Bootstrap gebruikt en de class 'row' al bepaalde eigenschappen heeft */
+.row.full-width {
+    width: 100vw; /* 100% van de viewport width */
+    margin: 0 calc(-50vw + 50%); /* negatieve marge om de volledige breedte te bereiken */
 }
 
-.contact-link {
-    color: inherit; /* Zorgt ervoor dat de link dezelfde kleur heeft als de omringende tekst */
-    text-decoration: none; /* Verwijdert de onderstreping van de link */
+.content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
-.contact-link:hover {
-    text-decoration: underline; /* Voeg onderstreping toe bij hover voor een visueel effect */
+.logo-container, .info-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-container {
+    flex: 1;
 }
 
 .info-container {
-    display: flex; /* Gebruik flexbox om de kinderen naast elkaar te plaatsen */
-    align-items: center; /* Centreer de items verticaal */
-    flex-grow: 1; /* Laat de container groeien om beschikbare ruimte te vullen */
-    padding: 10px; /* Voeg wat padding toe voor ruimte binnen de container */
-    max-width: 100%; /* Zorg ervoor dat de container niet buiten de kolom gaat */
-    flex-wrap: wrap; /* Zorg ervoor dat de items kunnen ombreken naar een nieuwe regel */
+    flex: 2;
+    display: flex;
+    align-items: center;
 }
 
 .text-container {
-    display: flex; /* Gebruik flexbox om de tekst onder elkaar te plaatsen */
-    flex-direction: column; /* Plaats de kinderen in een kolom */
-    flex-grow: 1; /* Laat de tekstcontainer groeien om beschikbare ruimte te vullen */
-    font-size: 1.2em; /* Verhoog de lettergrootte voor betere leesbaarheid */
+    margin-left: 15px;
 }
 
-.info-text {
-    font-size: 1.2em; /* Verhoog de lettergrootte voor betere leesbaarheid */
-    margin: 5px 0; /* Voeg wat ruimte toe tussen de regels tekst */
+.logo_image, .image_pa {
+    max-height: 450px; /* Adjust as needed */
+}
+.header-container {
+    width: 100%;
+    padding: 10px 0; /* Optioneel: pas de padding aan naar wens */
+    background-color: #0F0869;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Media Queries voor responsiviteit */
-@media (max-width: 767px) {
-    .info-container {
-        flex-direction: column; /* Plaats de items onder elkaar op kleinere schermen */
-        align-items: flex-start; /* Align de items aan de linkerkant */
+.header_section .row {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.header_section .menu_text {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.header_section .menu_text ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Zorgt ervoor dat de menu-items in het midden worden uitgelijnd */
+}
+
+.header_section .menu_text li {
+    margin: 0;
+}
+
+.centered-gradient-text {
+    color: #fff; /* Pas de kleur naar wens aan */
+    text-decoration: none;
+    /* Voeg eventueel extra stijlen toe voor de tekst */
+}
+
+.overlay {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.9); /* Zwarte achtergrond met doorzichtigheid */
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay-content a {
+    color: #fff; /* Pas de kleur naar wens aan */
+    text-decoration: none;
+    font-size: 36px; /* Pas de lettergrootte naar wens aan */
+}
+
+.title_section {
+    text-align: center;
+}
+
+.title_text {
+    font-size: 60px; /* Pas de lettergrootte aan naar wens */
+    color: #000; /* Zwarte letters */
+    font-weight: bold;
+}
+
+
+
+
+.contact-link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.contact-link:hover {
+    text-decoration: underline;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column;
+        align-items: center;
     }
-    
-    .image_pa {
-        margin-right: 0; /* Verwijder de rechter marge op kleinere schermen */
-        margin-bottom: 15px; /* Voeg marge aan de onderkant toe voor ruimte tussen de afbeelding en de tekst */
+
+    .logo-container, .info-container {
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 15px;
     }
-    
+
     .text-container {
-        align-items: flex-start; /* Align de tekst aan de linkerkant op kleinere schermen */
+        margin-left: 0;
+        text-align: left;
+        margin-top: 10px; /* Add some margin to separate text from the image */
+    }
+
+    .logo_image, .image_pa {
+        max-height: 300px;
+        align-items: center; /* Adjust as needed for mobile */
+    }
+    .image_pa{
+        margin-left: 0px;
+    }
+}
+
+ 
+
+.image_pa {
+    width: 400px; /* Adjust the width as desired */
+    height: 400px; /* Ensure aspect ratio is maintained */
+    z-index: 10; /* Adjust the value as per your needs */
+    position: relative; /* Add position to make z-index work */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Make the shadow larger and darker */
+    border-radius: 15px; /* Round the corners */
+    transition: transform 0.3s, box-shadow 0.3s; /* Add a transition effect for hover */
+    margin-right: 15px; /* Add space between the image and the text */
+}
+
+@media (min-width: 768px) {
+    .image_pa {
+        margin-left: 200px; /* Add left margin for larger screens */
     }
 }
 
